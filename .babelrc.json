@@ -1,0 +1,69 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "babel-plugin-styled-components",
+    "polished",
+    [
+      "transform-class-properties",
+      {
+        "spec": true
+      }
+    ],
+    "syntax-dynamic-import",
+    [
+      "transform-object-rest-spread",
+      {
+        "useBuiltIns": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          "@": "./src"
+        }
+      }
+    ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        [
+          "ramda",
+          {
+            "useES": true
+          }
+        ]
+      ]
+    },
+    "development": {
+      "plugins": [
+        [
+          "ramda",
+          {
+            "useES": true
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
